@@ -1,0 +1,1 @@
+npm install axios cors discord.js dotenv express moment-timezone node-binance-api node-localstorage
