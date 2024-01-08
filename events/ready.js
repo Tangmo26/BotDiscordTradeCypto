@@ -36,8 +36,8 @@ client.on('ready', async () => {
     const fetchDataInterval = setInterval(async () => {
         if (!isWait && isAllowedTime()) {
             isWait = true
-            let timeStamp, result, state
-            timeStamp, result, state = await fetchData();
+            const [timeStamp, result, state] = await fetchData();
+            console.log(timeStamp + " " + result + " " + state)
             const currentDate = moment().tz('Asia/Bangkok') ;
             const currentDateTime = currentDate.format('DD/MM/YYYY, HH:mm:ss');
             if (state === "buy") {

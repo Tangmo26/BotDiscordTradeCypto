@@ -14,23 +14,17 @@ async function fetchData() {
             const sellData = JSON.parse(apiData.sell_btc15min);
             const timeArray = sellData.map(entry => entry.time);
             const resultArray = sellData.map(entry => entry.result);
-            // console.log("Sell BTC 15min Time Array:", timeArray[0]);
-            // console.log("Sell BTC 15min Result Array:", resultArray[0]);
-            return timeArray[0], resultArray[0], "sell"
+            return [timeArray[0], resultArray[0], "sell"]
         } else if ('buy_btc15min' in apiData) {
             const buyData = JSON.parse(apiData.buy_btc15min);
             const timeArray = buyData.map(entry => entry.time);
             const resultArray = buyData.map(entry => entry.result);
-            // console.log("Buy BTC 15min Time Array:", timeArray[0]);
-            // console.log("Buy BTC 15min Result Array:", resultArray[0]);
-            return timeArray[0], resultArray[0], "buy"
+            return [timeArray[0], resultArray[0], "buy"]
         } else if ('non_btc15min' in apiData) {
             const nonBtcData = JSON.parse(apiData.non_btc15min);
             const timeArray = nonBtcData.map(entry => entry.time);
             const resultArray = nonBtcData.map(entry => entry.result);
-            // console.log("Non-BTC 15min Time Array:", timeArray[0]);
-            // console.log("Non-BTC 15min Result Array:", resultArray[0]);
-            return timeArray[0], resultArray[0], "non"
+            return [timeArray[0], resultArray[0], "non"]
         } else {
             console.log("Unknown data key in API response");
         }
